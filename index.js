@@ -12,5 +12,19 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
-}
+  return tutorials.map(function (tutorial) {
+    //split string into an array of each word
+    let words = tutorial.split(" ");
+    //pass each word into another map function
+    //returns a new array of upper cased words
+    const titleCasedWords = words.map(function(word) {
+      let upperCaseLetter = word.slice(0,1).toUpperCase();
+      let upperCaseWord = word.replace(word[0], upperCaseLetter);
+      return upperCaseWord
+    })
+    let titleCaseSentence = titleCasedWords.join(" ");
+    return titleCaseSentence
+  })};
+
+let newArray = titleCased();
+
